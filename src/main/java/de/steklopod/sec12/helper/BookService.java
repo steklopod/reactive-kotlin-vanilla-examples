@@ -1,6 +1,6 @@
 package de.steklopod.sec12.helper;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import reactor.core.publisher.Mono;
 import reactor.util.context.Context;
 

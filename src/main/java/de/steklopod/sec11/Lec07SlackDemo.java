@@ -1,6 +1,6 @@
 package de.steklopod.sec11;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec11.assignment.SlackMember;
 import de.steklopod.sec11.assignment.SlackRoom;
 

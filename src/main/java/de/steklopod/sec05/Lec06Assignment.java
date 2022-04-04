@@ -1,6 +1,6 @@
 package de.steklopod.sec05;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec05.assignment.InventoryService;
 import de.steklopod.sec05.assignment.OrderService;
 import de.steklopod.sec05.assignment.RevenueService;

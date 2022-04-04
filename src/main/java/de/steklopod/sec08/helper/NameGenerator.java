@@ -1,6 +1,6 @@
 package de.steklopod.sec08.helper;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;

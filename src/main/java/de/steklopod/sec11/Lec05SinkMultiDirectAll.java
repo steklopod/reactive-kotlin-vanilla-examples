@@ -1,6 +1,6 @@
 package de.steklopod.sec11;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
 

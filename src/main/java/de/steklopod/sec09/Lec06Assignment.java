@@ -1,6 +1,6 @@
 package de.steklopod.sec09;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec09.assignment.OrderProcessor;
 import de.steklopod.sec09.assignment.OrderService;
 import de.steklopod.sec09.assignment.PurchaseOrder;

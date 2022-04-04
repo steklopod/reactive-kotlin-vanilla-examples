@@ -1,7 +1,7 @@
 package de.steklopod.sec09.helper;
 
 import com.github.javafaker.Book;
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import lombok.Getter;
 import lombok.ToString;
 

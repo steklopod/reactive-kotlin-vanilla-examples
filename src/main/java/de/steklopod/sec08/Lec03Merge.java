@@ -1,6 +1,6 @@
 package de.steklopod.sec08;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec08.helper.AmericanAirlines;
 import de.steklopod.sec08.helper.Emirates;
 import de.steklopod.sec08.helper.Qatar;

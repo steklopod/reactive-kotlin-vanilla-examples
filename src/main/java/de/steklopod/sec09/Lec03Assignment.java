@@ -1,6 +1,6 @@
 package de.steklopod.sec09;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec09.helper.BookOrder;
 import de.steklopod.sec09.helper.RevenueReport;
 import reactor.core.publisher.Flux;

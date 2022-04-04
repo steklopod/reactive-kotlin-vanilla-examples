@@ -1,6 +1,6 @@
 package de.steklopod.sec03.helper;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import reactor.core.publisher.FluxSink;
 
 import java.util.function.Consumer;

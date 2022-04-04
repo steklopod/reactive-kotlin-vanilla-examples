@@ -1,6 +1,6 @@
 package de.steklopod.sec12;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec12.helper.BookService;
 import de.steklopod.sec12.helper.UserService;
 import reactor.util.context.Context;

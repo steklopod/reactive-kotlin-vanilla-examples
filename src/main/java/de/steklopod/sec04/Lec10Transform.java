@@ -1,6 +1,6 @@
 package de.steklopod.sec04;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec04.helper.Person;
 import reactor.core.publisher.Flux;
 

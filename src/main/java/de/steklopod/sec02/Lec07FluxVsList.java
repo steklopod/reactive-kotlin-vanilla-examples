@@ -1,6 +1,6 @@
 package de.steklopod.sec02;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec02.helper.NameGenerator;
 
 public class Lec07FluxVsList {

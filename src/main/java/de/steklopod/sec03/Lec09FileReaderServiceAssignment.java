@@ -1,6 +1,6 @@
 package de.steklopod.sec03;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import de.steklopod.sec03.assignment.FileReaderService;
 
 import java.nio.file.Path;

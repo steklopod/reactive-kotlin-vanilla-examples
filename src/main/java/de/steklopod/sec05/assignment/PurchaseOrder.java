@@ -1,6 +1,6 @@
 package de.steklopod.sec05.assignment;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import lombok.Data;
 import lombok.ToString;
 

@@ -1,6 +1,6 @@
 package de.steklopod.sec06;
 
-import de.steklopod.courseutil.Util;
+import de.steklopod.utils.Util;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
