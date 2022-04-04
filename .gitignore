@@ -1,0 +1,20 @@
+!**/src/main/**
+!**/src/test/**
+!gradle
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Gradle ###
+.gradle
+build
+*/build
+out
+*/out
+
+### H2 database ###
+*.mv.db
+*.trace.db
