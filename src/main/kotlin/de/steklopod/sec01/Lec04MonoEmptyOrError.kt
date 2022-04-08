@@ -4,9 +4,10 @@ import de.steklopod.utils.Util
 import reactor.core.publisher.Mono
 
 object Lec04MonoEmptyOrError {
+
     @JvmStatic
     fun main(args: Array<String>) {
-        userRepository(20)
+        userRepository(1)
             .subscribe(
                 Util.onNext(),
                 Util.onError(),

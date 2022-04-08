@@ -9,16 +9,18 @@ object Lec06SupplierRefactoring {
     @JvmStatic
     fun main(args: Array<String>) {
         name
-        val name = name
+
+        val nameGenerated: String? = name
             .subscribeOn(Schedulers.boundedElastic())
             .block()
-        println(name)
-        Lec06SupplierRefactoring.name
+        println(nameGenerated)
+
+        name
         Util.sleepSeconds(4)
     }
 
     private val name: Mono<String>
-        private get() {
+        get() {
             println("entered getName method")
             return Mono.fromSupplier {
                 println("Generating name..")

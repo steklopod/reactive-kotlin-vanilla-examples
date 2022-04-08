@@ -21,7 +21,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
 }
 
-java{ sourceCompatibility = JavaVersion.VERSION_17 }
+java { sourceCompatibility = JavaVersion.VERSION_17 }
 
 tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions { jvmTarget = "17" } }

@@ -6,25 +6,20 @@ import java.util.function.Consumer
 
 object Util {
     private val FAKER = Faker.instance()
+
     @JvmStatic
-    fun onNext(): Consumer<Any> {
-        return Consumer { o: Any -> println("Received : $o") }
+    fun onNext(): Consumer<Any> = Consumer { o: Any -> println("\t👯️ Received onNEXT : $o") }
+
+    @JvmStatic
+    fun onError(): Consumer<Throwable> = Consumer { e: Throwable ->
+        System.err.println("\tERROR : " + e.message)
     }
 
     @JvmStatic
-    fun onError(): Consumer<Throwable> {
-        return Consumer { e: Throwable -> System.err.println("ERROR : " + e.message) }
-    }
+    fun onComplete(): Runnable = Runnable { println("\t🏁 onCompleted") }
 
     @JvmStatic
-    fun onComplete(): Runnable {
-        return Runnable { println("Completed") }
-    }
-
-    @JvmStatic
-    fun faker(): Faker {
-        return FAKER
-    }
+    fun faker(): Faker = FAKER
 
     @JvmStatic
     fun sleepSeconds(seconds: Int) {
@@ -39,13 +34,10 @@ object Util {
             e.printStackTrace()
         }
     }
-    @JvmStatic
-    fun subscriber(): Subscriber<Any> {
-        return DefaultSubscriber()
-    }
 
     @JvmStatic
-    fun subscriber(name: String): Subscriber<Any> {
-        return DefaultSubscriber(name)
-    }
+    fun subscriber(): Subscriber<Any> = DefaultSubscriber()
+
+    @JvmStatic
+    fun subscriber(name: String): Subscriber<Any> = DefaultSubscriber(name)
 }

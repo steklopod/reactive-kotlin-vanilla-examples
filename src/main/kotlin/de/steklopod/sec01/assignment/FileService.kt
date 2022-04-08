@@ -8,27 +8,20 @@ import java.nio.file.StandardOpenOption
 
 object FileService {
     private val PATH = Paths.get("src/main/resources/assignment/sec01")
-    @JvmStatic
-    fun read(fileName: String): Mono<String> {
-        return Mono.fromSupplier { readFile(fileName) }
-    }
 
     @JvmStatic
-    fun write(fileName: String, content: String): Mono<Void> {
-        return Mono.fromRunnable { writeFile(fileName, content) }
-    }
+    fun read(fileName: String): Mono<String> = Mono.fromSupplier { readFile(fileName) }
 
     @JvmStatic
-    fun delete(fileName: String): Mono<Void> {
-        return Mono.fromRunnable { deleteFile(fileName) }
-    }
+    fun write(fileName: String, content: String): Mono<Void> = Mono.fromRunnable { writeFile(fileName, content) }
 
-    private fun readFile(fileName: String): String {
-        return try {
-            Files.readString(PATH.resolve(fileName))
-        } catch (e: IOException) {
-            throw RuntimeException(e)
-        }
+    @JvmStatic
+    fun delete(fileName: String): Mono<Void> = Mono.fromRunnable { deleteFile(fileName) }
+
+    private fun readFile(fileName: String): String = try {
+        Files.readString(PATH.resolve(fileName))
+    } catch (e: IOException) {
+        throw RuntimeException(e)
     }
 
     private fun writeFile(fileName: String, content: String) {

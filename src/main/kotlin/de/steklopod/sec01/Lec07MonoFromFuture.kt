@@ -13,5 +13,5 @@ object Lec07MonoFromFuture {
     }
 
     private val name: CompletableFuture<String>
-        private get() = CompletableFuture.supplyAsync { Util.faker().name().fullName() }
+        get() = CompletableFuture.supplyAsync { Util.faker().name().fullName() }
 }
