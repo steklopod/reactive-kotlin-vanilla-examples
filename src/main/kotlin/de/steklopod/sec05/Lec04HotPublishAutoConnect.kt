@@ -15,9 +15,11 @@ object Lec04HotPublishAutoConnect {
             .publish()
             .autoConnect(0)
         sleepSeconds(3)
+
         movieStream
             .subscribe(subscriber("sam"))
         sleepSeconds(10)
+
         println("Mike is about to join")
         movieStream
             .subscribe(subscriber("mike"))

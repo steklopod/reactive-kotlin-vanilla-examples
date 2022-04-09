@@ -11,9 +11,11 @@ object Lec01ColdPublisher {
     fun main(args: Array<String>) {
         val movieStream = Flux.fromStream { movie }
             .delayElements(Duration.ofSeconds(2))
+
         movieStream
             .subscribe(subscriber("sam"))
         sleepSeconds(5)
+
         movieStream
             .subscribe(subscriber("mike"))
         sleepSeconds(60)

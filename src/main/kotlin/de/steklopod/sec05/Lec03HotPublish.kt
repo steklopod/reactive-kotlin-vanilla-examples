@@ -14,9 +14,11 @@ object Lec03HotPublish {
             .delayElements(Duration.ofSeconds(1))
             .publish()
             .refCount(1)
+
         movieStream
             .subscribe(subscriber("sam"))
         sleepSeconds(10)
+
         movieStream
             .subscribe(subscriber("mike"))
         sleepSeconds(60)

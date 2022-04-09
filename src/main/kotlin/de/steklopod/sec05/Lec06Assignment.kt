@@ -16,10 +16,13 @@ object Lec06Assignment {
         // revenue and inv - observe the order stream
         orderService.orderStream().subscribe(revenueService.subscribeOrderStream())
         orderService.orderStream().subscribe(inventoryService.subscribeOrderStream())
+
         inventoryService.inventoryStream()
             .subscribe(subscriber("inventory"))
+
         revenueService.revenueStream()
             .subscribe(subscriber("revenue"))
+
         sleepSeconds(60)
     }
 }

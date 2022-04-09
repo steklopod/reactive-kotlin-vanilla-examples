@@ -12,9 +12,11 @@ object Lec02HotShare {
         val movieStream = Flux.fromStream { movie }
             .delayElements(Duration.ofSeconds(2))
             .share()
+
         movieStream
             .subscribe(subscriber("sam"))
         sleepSeconds(5)
+
         movieStream
             .subscribe(subscriber("mike"))
         sleepSeconds(60)

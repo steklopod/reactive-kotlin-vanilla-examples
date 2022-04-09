@@ -14,13 +14,18 @@ object Lec05HotPublishCache {
         val movieStream = Flux.fromStream { movie }
             .delayElements(Duration.ofSeconds(1))
             .cache(2)
+
         sleepSeconds(2)
+
         movieStream
             .subscribe(subscriber("sam"))
+
         sleepSeconds(10)
+
         println("Mike is about to join")
         movieStream
             .subscribe(subscriber("mike"))
+
         sleepSeconds(60)
     }
 
