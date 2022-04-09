@@ -19,7 +19,9 @@ object Lec04FluxCreateIssueFix {
                 println("emitting : $country")
                 fluxSink.next(country)
                 counter++
-            } while (country.lowercase(Locale.getDefault()) != "canada" && !fluxSink.isCancelled && counter < 10)
+            } while (country.lowercase(Locale.getDefault()) != "canada"
+                && !fluxSink.isCancelled && counter < 10
+            )
             fluxSink.complete()
         }
             .take(3)

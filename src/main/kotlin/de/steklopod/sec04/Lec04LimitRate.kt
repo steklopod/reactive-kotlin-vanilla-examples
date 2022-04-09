@@ -1,17 +1,14 @@
-package de.steklopod.sec03
+package de.steklopod.sec04
 
 import de.steklopod.utils.Util.subscriber
 import reactor.core.publisher.Flux
 
-object Lec03FluxTake {
+object Lec04LimitRate {
     @JvmStatic
     fun main(args: Array<String>) {
-        // map
-        // filter
-        Flux.range(1, 10)
+        Flux.range(1, 1000) // 175
             .log()
-            .take(3) // cancels
-            .log()
+            .limitRate(100, 0) // 75%
             .subscribe(subscriber())
     }
 }

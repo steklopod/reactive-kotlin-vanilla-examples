@@ -12,6 +12,5 @@ object Lec07MonoFromFuture {
         Util.sleepSeconds(1)
     }
 
-    private val name: CompletableFuture<String>
-        get() = CompletableFuture.supplyAsync { Util.faker().name().fullName() }
+    private val name: CompletableFuture<String> = CompletableFuture.supplyAsync { Util.faker().name().fullName() }
 }

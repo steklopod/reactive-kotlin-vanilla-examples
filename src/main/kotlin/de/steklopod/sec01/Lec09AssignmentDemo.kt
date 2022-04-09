@@ -1,7 +1,7 @@
 package de.steklopod.sec01
 
-import de.steklopod.utils.Util
 import de.steklopod.sec01.assignment.FileService
+import de.steklopod.utils.Util
 
 object Lec09AssignmentDemo {
     @JvmStatic

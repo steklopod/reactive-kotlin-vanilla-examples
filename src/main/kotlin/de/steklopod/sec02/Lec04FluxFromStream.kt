@@ -4,7 +4,6 @@ import de.steklopod.utils.Util.onComplete
 import de.steklopod.utils.Util.onError
 import de.steklopod.utils.Util.onNext
 import reactor.core.publisher.Flux
-import java.util.List
 
 object Lec04FluxFromStream {
     @JvmStatic

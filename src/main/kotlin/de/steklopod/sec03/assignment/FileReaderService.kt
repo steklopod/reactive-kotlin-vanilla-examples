@@ -12,12 +12,17 @@ import java.util.function.BiFunction
 import java.util.function.Consumer
 
 class FileReaderService {
-    private fun openReader(path: Path): Callable<BufferedReader> {
-        return Callable { Files.newBufferedReader(path) }
-    }
 
-    private fun read(): BiFunction<BufferedReader, SynchronousSink<String?>, BufferedReader> {
-        return BiFunction { br: BufferedReader, sink: SynchronousSink<String?> ->
+    fun read(path: Path): Flux<String> = Flux.generate(
+        openReader(path),
+        read(),
+        closeReader()
+    )
+
+    private fun openReader(path: Path): Callable<BufferedReader> = Callable { Files.newBufferedReader(path) }
+
+    private fun read(): BiFunction<BufferedReader, SynchronousSink<String>, BufferedReader> =
+        BiFunction { br: BufferedReader, sink: SynchronousSink<String> ->
             try {
                 val line = br.readLine()
                 println("reading --- $line")
@@ -27,24 +32,13 @@ class FileReaderService {
             }
             br
         }
-    }
 
-    private fun closeReader(): Consumer<BufferedReader> {
-        return Consumer { br: BufferedReader ->
-            try {
-                br.close()
-                println("--closed")
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
+    private fun closeReader(): Consumer<BufferedReader> = Consumer { br: BufferedReader ->
+        try {
+            br.close()
+            println("--closed")
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
-    }
-
-    fun read(path: Path): Flux<String?> {
-        return Flux.generate(
-            openReader(path),
-            read(),
-            closeReader()
-        )
     }
 }

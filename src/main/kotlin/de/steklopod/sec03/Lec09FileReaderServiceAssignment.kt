@@ -9,7 +9,9 @@ object Lec09FileReaderServiceAssignment {
     @JvmStatic
     fun main(args: Array<String>) {
         val readerService = FileReaderService()
+
         val path = Paths.get("src/main/resources/assignment/sec03/file01.txt")
+
         readerService.read(path)
             .map { s: String? ->
                 val integer = faker().random().nextInt(0, 10)
