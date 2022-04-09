@@ -12,7 +12,7 @@ object Lec06OnError {
             .log()
             .map { i: Int -> 10 / (5 - i) } // .onErrorReturn(-1)
             //  .onErrorResume(e -> fallback())
-            .onErrorContinue { err: Throwable?, obj: Any? -> }
+            .onErrorContinue { err: Throwable, obj: Any -> System.err.println(err.message + " : " + obj) }
             .subscribe(subscriber())
     }
 

@@ -7,10 +7,9 @@ import reactor.core.publisher.SynchronousSink
 object Lec01Handle {
     @JvmStatic
     fun main(args: Array<String>) {
-
         // handle = filter + map
         Flux.range(1, 20)
-            .handle { integer: Int, synchronousSink: SynchronousSink<Any> ->
+            .handle { integer: Int, synchronousSink: SynchronousSink<Int> ->
                 if (integer == 7) synchronousSink.complete()
                 else synchronousSink.next(integer)
             }

@@ -9,9 +9,8 @@ import java.util.*
 object Lec02HandleAssignment {
     @JvmStatic
     fun main(args: Array<String>) {
-        Flux.generate { synchronousSink: SynchronousSink<Any> -> synchronousSink.next(faker().country().name()) }
-            .map { obj: Any -> obj.toString() }
-            .handle { s: String, synchronousSink: SynchronousSink<Any> ->
+        Flux.generate { synchronousSink: SynchronousSink<String> -> synchronousSink.next(faker().country().name()) }
+            .handle { s: String, synchronousSink: SynchronousSink<String> ->
                 synchronousSink.next(s)
                 if (s.lowercase(Locale.getDefault()) == "canada") synchronousSink.complete()
             }

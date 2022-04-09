@@ -12,7 +12,7 @@ object Lec06FluxGenerateAssignment {
         // canada
         // max = 10
         // subscriber cancels - exit
-        Flux.generate { synchronousSink: SynchronousSink<Any> ->
+        Flux.generate { synchronousSink: SynchronousSink<String> ->
             val country = faker().country().name()
             println("emitting $country")
             synchronousSink.next(country)

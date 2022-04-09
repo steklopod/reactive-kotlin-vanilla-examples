@@ -13,13 +13,14 @@ object Lec11SwitchOnFirst {
         person
             .switchOnFirst { signal: Signal<out Person>, personFlux: Flux<Person> ->
                 println("inside switch-on-first")
-                if (signal.isOnNext && signal.get()!!.age > 10) personFlux else applyFilterMap().apply(personFlux)
+                if (signal.isOnNext && signal.get()!!.age > 10) personFlux
+                else applyFilterMap().apply(personFlux)
             }
             .subscribe(subscriber())
     }
 
     private val person: Flux<Person> = Flux.range(1, 10)
-        .map { i: Int? -> Person() }
+        .map { i: Int -> Person() }
 
     private fun applyFilterMap(): Function<Flux<Person>, Flux<Person>> = Function { flux: Flux<Person> ->
         flux

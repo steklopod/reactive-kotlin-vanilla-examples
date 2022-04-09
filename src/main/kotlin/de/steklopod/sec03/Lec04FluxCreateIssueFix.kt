@@ -10,8 +10,8 @@ object Lec04FluxCreateIssueFix {
     @JvmStatic
     fun main(args: Array<String>) {
 
-        // only one instance of fluxsink
-        Flux.create { fluxSink: FluxSink<Any> ->
+        // only one instance of flux sink
+        Flux.create { fluxSink: FluxSink<String> ->
             var country: String
             var counter = 0
             do {

@@ -11,7 +11,7 @@ object Lec07FluxGenerateCounter {
     fun main(args: Array<String>) {
         Flux.generate(
             { 1 }
-        ) { counter: Int, sink: SynchronousSink<Any> ->
+        ) { counter: Int, sink: SynchronousSink<String> ->
             val country = faker().country().name()
             sink.next(country)
             if (counter >= 10 || country.lowercase(Locale.getDefault()) == "canada") sink.complete()

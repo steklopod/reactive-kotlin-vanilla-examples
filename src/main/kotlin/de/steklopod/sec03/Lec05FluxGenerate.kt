@@ -8,7 +8,7 @@ import reactor.core.publisher.SynchronousSink
 object Lec05FluxGenerate {
     @JvmStatic
     fun main(args: Array<String>) {
-        Flux.generate { synchronousSink: SynchronousSink<Any> ->
+        Flux.generate { synchronousSink: SynchronousSink<String> ->
             println("emitting")
             synchronousSink.next(faker().country().name()) // 1
         }
