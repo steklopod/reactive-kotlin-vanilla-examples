@@ -6,7 +6,7 @@ import de.steklopod.utils.Util.sleepSeconds
 import de.steklopod.utils.Util.subscriber
 import reactor.core.publisher.Flux
 import java.time.Duration
-import java.util.stream.Collectors
+import kotlin.math.pow
 
 object Lec03Assignment {
     private val allowedCategories = mutableSetOf("Science fiction", "Fantasy", "Suspense/Thriller")
@@ -23,14 +23,9 @@ object Lec03Assignment {
     }
 
     private fun revenueCalculator(books: List<BookOrder>): RevenueReport {
-        val map = books.stream()
-            .collect(
-                Collectors.groupingBy(
-                    { obj: BookOrder -> obj.category },
-                    Collectors.summingDouble { obj: BookOrder -> obj.price }
-                )
-            )
-        return RevenueReport(revenue = map)
+        val revenue: Map<String, Double> = books.groupBy { it.category }
+            .mapValues { entry -> entry.value.sumOf { it.price } }
+        return RevenueReport(revenue = revenue)
     }
 
     private fun bookStream(): Flux<BookOrder> = Flux.interval(Duration.ofMillis(200))

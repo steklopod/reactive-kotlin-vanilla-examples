@@ -11,6 +11,7 @@ object Lec01Buffer {
         eventStream()
             .bufferTimeout(5, Duration.ofSeconds(2))
             .subscribe(subscriber())
+
         sleepSeconds(60)
     }
 

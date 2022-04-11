@@ -11,6 +11,7 @@ object Lec02OverlapAndDrop {
         eventStream()
             .buffer(3, 5)
             .subscribe(subscriber())
+
         sleepSeconds(60)
     }
 

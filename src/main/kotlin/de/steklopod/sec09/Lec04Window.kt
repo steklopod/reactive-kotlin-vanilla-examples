@@ -20,10 +20,10 @@ object Lec04Window {
     }
 
     private fun eventStream(): Flux<String> = Flux.interval(Duration.ofMillis(500))
-        .map { i: Long -> "event$i" }
+        .map { i: Long -> "🎥 event$i" }
 
     private fun saveEvents(flux: Flux<String>): Mono<Int> = flux
-        .doOnNext { e: String -> println("saving $e") }
+        .doOnNext { e: String -> println("🪤 saving $e") }
         .doOnComplete {
             println("saved this batch")
             println("-------------------")

@@ -17,6 +17,6 @@ object Lec05Group {
 
     private fun process(flux: Flux<Int>, key: Int) {
         println("Called")
-        flux.subscribe { i: Int -> println("Key : $key, Item : $i") }
+        flux.subscribe { i: Int -> println("⏱ Key : $key, Item : $i") }
     }
 }
