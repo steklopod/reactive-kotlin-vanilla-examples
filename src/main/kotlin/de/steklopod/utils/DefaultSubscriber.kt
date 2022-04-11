@@ -17,7 +17,7 @@ class DefaultSubscriber : Subscriber<Any> {
     }
 
     override fun onNext(o: Any) {
-        println("$name 👯‍ ️received : $o")
+        println("$name 📥 ️received : $o")
     }
 
     override fun onError(throwable: Throwable) {

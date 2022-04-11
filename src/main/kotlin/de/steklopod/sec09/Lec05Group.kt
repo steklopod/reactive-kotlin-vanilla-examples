@@ -10,7 +10,8 @@ object Lec05Group {
     fun main(args: Array<String>) {
         Flux.range(1, 30)
             .delayElements(Duration.ofSeconds(1))
-            .groupBy { i: Int -> i % 2 } // key 0, 1
+            .groupBy { i: Int -> i % 2 }
+            // key 0, 1
             .subscribe { gf: GroupedFlux<Int, Int> -> process(gf, gf.key()) }
         sleepSeconds(60)
     }
