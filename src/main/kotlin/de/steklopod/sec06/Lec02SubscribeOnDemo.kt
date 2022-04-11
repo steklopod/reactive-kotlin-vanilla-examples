@@ -8,22 +8,23 @@ import reactor.core.scheduler.Schedulers
 object Lec02SubscribeOnDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        val flux = Flux.create { fluxSink: FluxSink<Any> ->
+        val flux = Flux.create { fluxSink: FluxSink<Int> ->
             printThreadName("create")
             fluxSink.next(1)
         }
             .subscribeOn(Schedulers.newParallel("vins"))
-            .doOnNext { i: Any -> printThreadName("next $i") }
+            .doOnNext { i: Int -> printThreadName("next $i") }
+
         val runnable = Runnable {
             flux
                 .doFirst { printThreadName("first2") }
                 .subscribeOn(Schedulers.boundedElastic())
                 .doFirst { printThreadName("first1") }
-                .subscribe { v: Any -> printThreadName("sub $v") }
+                .subscribe { v: Int -> printThreadName("sub $v") }
         }
-        for (i in 0..1) {
-            Thread(runnable).start()
-        }
+
+        repeat(2) { Thread(runnable).start() }
+
         sleepSeconds(5)
     }
 
