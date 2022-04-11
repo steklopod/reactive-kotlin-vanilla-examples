@@ -1,8 +1,6 @@
 package de.steklopod.sec05.assignment
 
 import de.steklopod.utils.Util.faker
-import lombok.Data
-import lombok.ToString
 
 
 data class PurchaseOrder(

@@ -5,7 +5,6 @@ import de.steklopod.sec04.helper.User
 import de.steklopod.sec04.helper.UserService
 import de.steklopod.utils.Util.sleepSeconds
 import de.steklopod.utils.Util.subscriber
-import java.io.BufferedReader
 
 object Lec12FlatMap {
     @JvmStatic
