@@ -14,9 +14,9 @@ object Lec05CombineLatest {
     }
 
     private val string: Flux<String>
-        private get() = Flux.just("A", "B", "C", "D")
+        get() = Flux.just("A", "B", "C", "D")
             .delayElements(Duration.ofSeconds(1))
     private val number: Flux<Int>
-        private get() = Flux.just(1, 2, 3)
+        get() = Flux.just(1, 2, 3)
             .delayElements(Duration.ofSeconds(3))
 }

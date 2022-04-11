@@ -18,13 +18,9 @@ object Lec06Assignment {
         sleepSeconds(20)
     }
 
-    private fun monthStream(): Flux<Long> {
-        return Flux.interval(Duration.ZERO, Duration.ofSeconds(1))
-    }
+    private fun monthStream(): Flux<Long> = Flux.interval(Duration.ZERO, Duration.ofSeconds(1))
 
-    private fun demandStream(): Flux<Double> {
-        return Flux.interval(Duration.ofSeconds(3))
-            .map { i: Long? -> faker().random().nextInt(80, 120) / 100.0 }
-            .startWith(1.0)
-    }
+    private fun demandStream(): Flux<Double> = Flux.interval(Duration.ofSeconds(3))
+        .map { i: Long? -> faker().random().nextInt(80, 120) / 100.0 }
+        .startWith(1.0)
 }
