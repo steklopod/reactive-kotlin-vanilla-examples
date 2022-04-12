@@ -24,9 +24,7 @@ class Lec05VirtualTimeTest {
             .verifyComplete()
     }
 
-    private fun timeConsumingFlux(): Flux<String?> {
-        return Flux.range(1, 4)
-            .delayElements(Duration.ofSeconds(5))
-            .map { i: Int -> i.toString() + "a" }
-    }
+    private fun timeConsumingFlux(): Flux<String> = Flux.range(1, 4)
+        .delayElements(Duration.ofSeconds(5))
+        .map { it.toString() + "a" }
 }

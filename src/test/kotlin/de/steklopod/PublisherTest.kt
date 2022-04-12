@@ -51,8 +51,8 @@ class PublisherTest {
     // complex business logic
     private fun process(flux: Flux<Int>) {
         flux
-            .map { i: Int -> i + 1 }
-            .map { i: Int -> i * i }
+            .map { it + 1 }
+            .map { it * it }
             .take(3)
             .subscribe() // db / log files
     }

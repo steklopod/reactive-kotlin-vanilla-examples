@@ -17,7 +17,7 @@ class Lec03SVRangeTest {
     fun test2() {
         val range = Flux.range(1, 50)
         StepVerifier.create(range)
-            .thenConsumeWhile { i: Int -> i < 100 }
+            .thenConsumeWhile { it < 100 }
             .verifyComplete()
     }
 }

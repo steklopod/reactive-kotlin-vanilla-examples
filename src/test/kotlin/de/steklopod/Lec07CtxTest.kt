@@ -23,11 +23,8 @@ class Lec07CtxTest {
     }
 
     private val welcomeMessage: Mono<String>
-        private get() = Mono.deferContextual { ctx: ContextView ->
-            if (ctx.hasKey("user")) {
-                return@deferContextual Mono.just("Welcome " + ctx.get("user"))
-            } else {
-                return@deferContextual Mono.error<String>(RuntimeException("unauthenticated"))
-            }
+        get() = Mono.deferContextual { ctx: ContextView ->
+            if (ctx.hasKey("user")) Mono.just("Welcome " + ctx.get("user"))
+            else Mono.error(RuntimeException("unauthenticated"))
         }
 }
