@@ -9,10 +9,10 @@ import java.util.concurrent.CompletableFuture
 object Lec03SinkThreadSafety {
     @JvmStatic
     fun main(args: Array<String>) {
-
-
         // handle through which we would push items
-        val sink = Sinks.many().unicast().onBackpressureBuffer<Int>()
+        val sink = Sinks.many()
+            .unicast()
+            .onBackpressureBuffer<Int>()
 
         // handle through which subscribers will receive items
         val flux = sink.asFlux()

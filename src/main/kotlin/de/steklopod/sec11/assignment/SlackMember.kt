@@ -1,19 +1,16 @@
 package de.steklopod.sec11.assignment
 
-import java.util.function.Consumer
-
 class SlackMember(val name: String) {
-    private var messageConsumer: Consumer<String>? = null
 
-    fun receives(message: String?) {
-        println(message)
+    fun receives(message: String) {
+        println("received message 📥 : $message")
     }
 
-    fun says(message: String) {
-        messageConsumer!!.accept(message)
+    fun says(msg: String) {
+        val slackMessage = SlackMessage(sender = name, message = msg)
+
+        SlackRoom.sink
+            .tryEmitNext(slackMessage)
     }
 
-    fun setMessageConsumer(messageConsumer: Consumer<String>?) {
-        this.messageConsumer = messageConsumer
-    }
 }

@@ -6,26 +6,22 @@ import reactor.core.publisher.Sinks.Many
 
 class SlackRoom(private val name: String) {
 
-    private val sink: Many<SlackMessage> = Sinks.many().replay().all()
-    private val flux: Flux<SlackMessage> = sink.asFlux()
+    fun joinRoom(member: SlackMember) {
+        println(member.name + "------------- Joined --------------- [$name]")
 
-    fun joinRoom(slackMember: SlackMember) {
-        println(slackMember.name + "------------- Joined ---------------" + name)
-        subscribe(slackMember)
-        slackMember.setMessageConsumer { msg: String -> postMessage(msg, slackMember) }
+        messages
+            .filter { it.sender != member.name }
+            .doOnNext { it.receiver = member.name }
+            .map(SlackMessage::toString)
+            .subscribe { member.receives(it) }
     }
 
-    private fun subscribe(slackMember: SlackMember) {
-        flux
-            .filter { sm: SlackMessage -> sm.sender != slackMember.name }
-            .doOnNext { sm: SlackMessage -> sm.receiver = slackMember.name }
-            .map { obj: SlackMessage -> obj.toString() }
-            .subscribe { message: String -> slackMember.receives(message) }
+    companion object {
+        val sink: Many<SlackMessage> = Sinks.many()
+            .replay()
+            .all()
+
+        private val messages: Flux<SlackMessage> = sink.asFlux()
     }
 
-    private fun postMessage(msg: String, slackMember: SlackMember) {
-        val slackMessage = SlackMessage(sender = slackMember.name, message = msg)
-
-        sink.tryEmitNext(slackMessage)
-    }
 }

@@ -8,7 +8,9 @@ object Lec04SinkMulti {
     fun main(args: Array<String>) {
 
         // handle through which we would push items
-        val sink = Sinks.many().multicast().onBackpressureBuffer<String>()
+        val sink = Sinks.many()
+            .multicast()
+            .onBackpressureBuffer<String>()
 
         // handle through which subscribers will receive items
         val flux = sink.asFlux()
