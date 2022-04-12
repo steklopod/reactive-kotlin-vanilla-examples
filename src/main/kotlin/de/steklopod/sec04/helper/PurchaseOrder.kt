@@ -1,17 +1,9 @@
 package de.steklopod.sec04.helper
 
 import de.steklopod.utils.Util.faker
-import lombok.Data
-import lombok.ToString
 
-@Data
-@ToString
-class PurchaseOrder(private val userId: Int) {
-    private val item: String
-    private val price: String
-
-    init {
-        item = faker().commerce().productName()
-        price = faker().commerce().price()
-    }
-}
+data class PurchaseOrder(
+    val userId: Int,
+    val item: String = faker().commerce().productName(),
+    val price: String = faker().commerce().price()
+)

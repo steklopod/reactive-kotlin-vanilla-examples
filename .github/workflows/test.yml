@@ -1,0 +1,21 @@
+name: Test server
+on: push
+
+jobs:
+  TEST:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # BACKEND
+      - name: 🪜 Setup java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: 🔦 BACKEND - Test & Build 🎚
+        run: |
+          chmod +x ./gradlew
+          ./gradlew test
